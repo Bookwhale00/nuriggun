@@ -195,7 +195,7 @@ class PasswordResetSerializer(serializers.Serializer):
                 uidb64 = urlsafe_base64_encode(force_bytes(user.id))
                 token = PasswordResetTokenGenerator().make_token(user)
 
-                reset_url = f"https://nuriggun.xyz/user/password/reset/check/{uidb64}/{token}/"
+                reset_url = f"http://127.0.0.1:8000/user/password/reset/check/{uidb64}/{token}/"
         
                 Util.send_password_reset_email(user, reset_url)
                 return attrs
